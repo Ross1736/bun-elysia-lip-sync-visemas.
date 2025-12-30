@@ -1,15 +1,16 @@
 import { Elysia } from "elysia";
+import { platform } from "node:os";
 
 const app = new Elysia().get("/", () => "Hello Elysia").listen(3000);
 
-const RHUBARD =
-  process.env.NODE_ENV === "production"
-    ? "./binLinux/rhubarb"
-    : "./binWindows/rhubarb.exe";
+const RHUBARB =
+  platform() === "win32" ? "./binWindows/rhubarb.exe" : "./binLinux/rhubarb";
+
+console.log(RHUBARB);
 
 app.get("generate", async () => {
   const process = Bun.spawn([
-    RHUBARD,
+    RHUBARB,
     "./uploads/defeated.wav",
     "-f",
     "json",
