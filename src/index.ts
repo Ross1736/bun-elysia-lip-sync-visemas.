@@ -2,7 +2,7 @@ import { Elysia } from "elysia";
 import { platform } from "node:os";
 import { whisperToMouthCues } from "./utils/functions";
 
-const app = new Elysia().get("/", () => "Hello Elysia").listen(3000);
+const app = new Elysia().get("/", () => "Hello Elysia - Whisper").listen(3000);
 
 const WHISPER =
   platform() === "win32"
