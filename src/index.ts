@@ -9,6 +9,8 @@ const WHISPER =
     ? "binWhisper/whisper.exe"
     : "binWhisper/linux/whisper";
 
+console.log(WHISPER);
+
 app.get("generate", async () => {
   const proc = Bun.spawn([
     WHISPER,

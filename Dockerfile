@@ -30,6 +30,7 @@ RUN mkdir -p models && \
 COPY . .
 
 RUN bun install
+RUN bun build src/index.ts --target bun --outdir ./dist
 
 EXPOSE 3000
-CMD ["bun", "run", "index.js"]
+CMD ["bun", "run", "dist/index.js"]
